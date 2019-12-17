@@ -1,7 +1,7 @@
 # AWS_Digit_Recognition
 ## set-up the AWS structure to train your digit recognition NN and apply  it through hand written digits in an API
 
-![alt text](https://github.com/JeanMILPIED/Jump-Box/blob/master/JumpBox_img.png)
+![alt text](https://github.com/JeanMILPIED/AWS_Digit_Recognition/blob/master/2019-12-17%20(2).png)
 
 ### OBJECTIVE: PUTTING Live your Digit recognition POC
 In a summary, what you will do in this project is :
