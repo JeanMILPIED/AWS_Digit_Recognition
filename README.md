@@ -38,15 +38,18 @@ M5.xlarge to use for training the model
 
 ## details of instances set-up
 ### Machine1
-- chose an UBUNTU server free tier instance 18.04 with a 
-```Sudo apt-get install git```
-```Git clone ("the clone adress of the full git_hub repository")```
+- chose an UBUNTU server free tier instance 18.04 with a 20Go storage
+```
+Sudo apt-get install git
+Git clone ("the clone adress of the full git_hub repository")
+```
 - This will install all the environment
 ```Pip install -r ./AWS_Tutorials/MNIST/requirements.txt```
+
 See all the command lines at 
 https://github.com/leodsti/AWS_Tutorials/blob/master/MNIST/Command%20to%20makes%20things%20work.txt
 
-Then you go on the notebook, chose the right kernel and launch the notebook
+Then you go on the notebook, chose the right kernel and launch the notebook on your Jupyter server
 
 Notes of the notebook
 - Keras is a framework that codes another framework which is tensorflow
