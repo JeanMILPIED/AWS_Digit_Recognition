@@ -50,6 +50,7 @@ See all the command lines at
 https://github.com/leodsti/AWS_Tutorials/blob/master/MNIST/Command%20to%20makes%20things%20work.txt
 
 Then you go on the notebook, chose the right kernel and launch the notebook on your Jupyter server
+you can find the notebook on this git-hub (00-mnist-cnn.ipynb)
 
 Notes of the notebook
 - Keras is a framework that codes another framework which is tensorflow
@@ -61,11 +62,15 @@ Notes of the notebook
 ### Machine2
 - Launch instance ubuntu 18.04 free Tier
 - Install appache
-```sudo apt install apache2```
+```
+sudo apt install apache2
+```
 - https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04
-```sudo ufw allow 'Apache'```
+```
+sudo ufw allow 'Apache'
+```
 - note:ctrl-C to get out of Apache
-- Put the files (index.html, index.js, style.css on the machine and make run
+- Put the files (index.html, index.js, style.css) on the machine and make it run
   
 ```
 Mkdir static
@@ -86,7 +91,7 @@ scp -i "JM_Keypair.pem" "index.html" ubuntu@3.226.235.17:/home/ubuntu/index.html
 28  sudo systemctl reload apache2
 ``` 
 	
-Now if you connect at the public IP adress, you have : 
+Now if you connect at the public IP adress, you have the proper API to drw your own black and white digits
 	   
 
 
@@ -146,9 +151,14 @@ def loadImage(filename):
 	img_4 = np.reshape(img_3, (1,img_cols,img_rows,1))
 	return np.array(img_4)
 ```
+- you should finally consider to adjust the security group of the Machine 3 instance to allow TCP custom protocol connect from port 5000
+
+FInally, you need to update the index.html file in your machine2 in order to modify the public IP address where the API listens prediction too with the Machine3 public IP adress. you can use the "sudo vi index.html" command line
 
 It works!
 
-# you can then connect via the public IP adress of your API
+# you can then connect via the public IP adress of your API and play a bit with your mouse;
+
+Next steps: improving the NN model to achieve highest prediction accuracy rate of the model
 	
 	
