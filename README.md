@@ -37,7 +37,7 @@ All the data are in this git-hub
 M5.xlarge to use for training the model
 
 ## details of instances set-up
-### Machine1
+### Machine1: Jupyter server
 - chose an UBUNTU server free tier instance 18.04 with a 20Go storage
 ```
 Sudo apt-get install git
@@ -59,7 +59,7 @@ Notes of the notebook
 - It tries to predict 10 classes
 - Epoch 10 => we are changing the values 10 times
 
-### Machine2
+### Machine2: Front End API
 - Launch instance ubuntu 18.04 free Tier
 - Install appache
 ```
@@ -95,7 +95,7 @@ Now if you connect at the public IP adress, you have the proper API to drw your 
 	   
 
 
-### Machine3
+### Machine3: Back End Prediction
 - EC2 instance Ubuntu 18.04 with 20Go storage memory
 - Connect and update
 - To solve package incompatibilities, we install conda back and use a virtual environment
