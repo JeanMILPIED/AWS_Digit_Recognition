@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from imageio import imread
-from PIL import Image
+from PIL import Image, ImageChops
 from keras.preprocessing import image
 import sys
 import os
@@ -28,6 +28,16 @@ graph = graph = tf.get_default_graph()
 def index():
     return render_template("index.html")
 
+from PIL import Image
+
+def trim(im):
+    bg = Image.new(im.mode, im.size, im.getpixel((0,0)))
+    diff = ImageChops.difference(im, bg)
+    diff = ImageChops.add(diff, diff, 2.0, -100)
+    bbox = diff.getbbox()
+    if bbox:
+        return im.crop(bbox)
+
 def convertImage(imgData1):
   imgstr = re.search(r'base64,(.*)', str(imgData1)).group(1)
   with open('output.png', 'wb') as output:
@@ -36,10 +46,12 @@ def convertImage(imgData1):
 def loadImage(filename):
         img_rows = img_cols = 28
         img = Image.open(filename).convert('L')
+        img = trim(img)
         img_1 = img.resize((28,28),Image.NEAREST)
         print(img_1.size)
         img_2 = image.img_to_array(img_1)
         print(img_2.size)
+        
         #.reshape(img_1.size[1], img_1.size[0])
         img_2 = img_2 / 255
         # Reshape from (28,28) to (1,28,28,1) : 1 sample, 28x28 pixels, 1 channel (B/W)
